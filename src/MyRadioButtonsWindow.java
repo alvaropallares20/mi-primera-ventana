@@ -19,8 +19,15 @@ public class MyRadioButtonsWindow {
         JRadioButton boton2 = new JRadioButton("Mujer");
         boton2.setBounds(200,50, 100, 30);
 
+        ButtonGroup grupo = new ButtonGroup();
+        grupo.add(boton1);
+        grupo.add(boton2);
+
         mainpanel.add(boton1);
         mainpanel.add(boton2);
+
+        f.setLayout(null);
+
 
         f.setContentPane(mainpanel);
     }
