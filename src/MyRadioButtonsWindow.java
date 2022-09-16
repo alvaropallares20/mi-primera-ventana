@@ -11,10 +11,17 @@ public class MyRadioButtonsWindow {
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JPanel mainpanel = new JPanel();
-        mainpanel.setBackground(Color.pink);
+        mainpanel.setBackground(Color.white);
         mainpanel.setLayout(null);
 
-        JRadioButton boton1 = new JRadioButton();
-        boton1.
+        JRadioButton boton1 = new JRadioButton("Hombre");
+        boton1.setBounds(75,50, 100, 30);
+        JRadioButton boton2 = new JRadioButton("Mujer");
+        boton2.setBounds(200,50, 100, 30);
+
+        mainpanel.add(boton1);
+        mainpanel.add(boton2);
+
+        f.setContentPane(mainpanel);
     }
 }
