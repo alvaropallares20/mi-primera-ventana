@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class MyRadioButtonsWindow {
 
@@ -12,33 +14,38 @@ public class MyRadioButtonsWindow {
 
         JPanel mainpanel = new JPanel();
         mainpanel.setBackground(Color.white);
-        mainpanel.setLayout(null);
-
 
         JRadioButton boton1 = new JRadioButton("Linux");
-        boton1.setBounds(75,50, 100, 30);
+        boton1.setActionCommand("Linux");
         JRadioButton boton2 = new JRadioButton("Windows");
-        boton2.setBounds(200,50, 100, 30);
+        boton2.setActionCommand("Windows");
         JRadioButton boton3 = new JRadioButton("Macintosh");
-        boton3.setBounds(320,50, 100, 30);
+        boton3.setActionCommand("Macintosh");
         JButton boton = new JButton("Ok");
-        boton.setBounds(210,100, 75, 50);
-
 
         ButtonGroup grupo = new ButtonGroup();
         grupo.add(boton1);
         grupo.add(boton2);
         grupo.add(boton3);
-
         mainpanel.add(boton1);
         mainpanel.add(boton2);
         mainpanel.add(boton3);
         mainpanel.add(boton);
 
-        f.setLayout(null);
+        JLabel imagen = new JLabel();
+        imagen.setIcon(new ImageIcon("Linux.jpeg"));
+        mainpanel.add(imagen);
+        boton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                String selected = grupo.getSelection().getActionCommand();
+                JOptionPane.showMessageDialog(f, "Ha seleccionado " + selected);
+                imagen.setIcon(new ImageIcon(selected + ".jpeg"));
+            }
+        });
+
         f.repaint();
         f.revalidate();
-
         f.setContentPane(mainpanel);
     }
 }
