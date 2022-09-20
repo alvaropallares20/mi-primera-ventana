@@ -24,7 +24,6 @@ public class Paneles {
         mainpanel.add(panel2);
 
         f.setContentPane(mainpanel);
-
         f.revalidate();
         f.repaint();
 
